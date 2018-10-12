@@ -1,17 +1,11 @@
 define(['jquery','jquery-cookie'],function($){
     function main(){
         $(function(){
-            $("#show").mouseenter(function(){
+            $("#show,.showServe").mouseenter(function(){
                 $('.showServe').css('display','block')
 			});
-			$("#show").mouseleave(function(){
+			$("#show,.showServe").mouseleave(function(){
                 $('.showServe').css('display','none')
-			});
-            $(".showServe").mouseenter(function(){
-                $(this).css('display','block')
-			});
-			$(".showServe").mouseleave(function(){
-                $(this).css('display','none')
 			});
             //导航栏图片滚动部分
             $.ajax({
@@ -32,31 +26,31 @@ define(['jquery','jquery-cookie'],function($){
             var iNow = -1 ;
             var timer = null;
             var oOl = $('.containerbody').find('ol');
-            var oUl = $(".containerbody").find("ul");
             oOl.on('click','li',function(){
                 iNow = $(this).index();
-                tab();
+                // tabContainer();
                 $('.containerbody ul li').stop().animate({
                     opacity : 0
                 },1000)
                 $('.containerbody ul li').eq(iNow).stop().animate({
                     opacity : 1
                 },1000)
+                $('.containerbody ol li').attr('class','').eq(iNow).attr('class','active');
             })
 
-            timer = setInterval(timerInner,1000);
+            timer = setInterval(timerInner,4000);
             $('.containerbody').hover(function(){
                 clearInterval(timer);
             },function(){
-                timer = setInterval(timerInner,1000);
+                timer = setInterval(timerInner,4000);
             })
 
             function timerInner(){
                 iNow++;
-                tab();
+                tabContainer();
             }
 
-            function tab(){
+            function tabContainer(){
                 $('.containerbody ol li').attr('class','').eq(iNow).attr('class','active');
                 $('.containerbody ul li').eq(iNow).stop().animate({
                     opacity : 0
@@ -98,16 +92,16 @@ define(['jquery','jquery-cookie'],function($){
             })
             //导航栏图片滚动部分结束
             //左右边栏导航
-            $(".containerbody").mouseenter(function(){
+            $(".containerbody,.like-list").mouseenter(function(){
                 $('.slider-left').css('opacity','0.6').css('transition','0.7s')
             });
-            $(".containerbody").mouseleave(function(){
+            $(".containerbody,.like-list").mouseleave(function(){
                 $('.slider-left').css('opacity','0').css('transition','0.7s')
             });
-            $(".containerbody").mouseenter(function(){
+            $(".containerbody,.like-list").mouseenter(function(){
                 $('.slider-right').css('opacity','0.6').css('transition','0.7s')
             });
-            $(".containerbody").mouseleave(function(){
+            $(".containerbody,.like-list").mouseleave(function(){
                 $('.slider-right').css('opacity','0').css('transition','0.7s')
             });
             //左右边栏导航结束
@@ -161,7 +155,80 @@ define(['jquery','jquery-cookie'],function($){
                 }
             })
             //猜你喜欢部分数据加载结束
+            //猜你喜欢动画效果开始
+            var iNow1 = 0;
+            var timer1 = null;
+            $('.like-list ol').on('click','li',function(){
+                iNow1 = $(this).index();
+                $('.like-list ul li').eq(iNow1).stop().animate({
+                    left : 0
+                },1000);
 
+                $('.like-list ul li').eq(iNow1 -1).stop().animate({
+                    left : '-120%'
+                },1000,function(){
+                    $('.like-list ul li').eq(iNow -1).css('left','100%');
+                });
+
+                $('.like-list ol li').attr('class','').eq(iNow1).attr('class','active');
+            })
+
+            timer1 = setInterval(timerInner1,4000);
+            $('.like-list').hover(function(){
+                clearInterval(timer1);
+            },function(){
+                timer1 = setInterval(timerInner1,4000);
+            })
+            function timerInner1(){
+                iNow1++;
+                tabLike();
+            }
+
+            function tabLike(){
+                $('.like-list ol li').attr('class','').eq(iNow1).attr('class','active');
+                $('.like-list ul li').eq(iNow1).stop().animate({
+                    left : 0
+                },1000,function(){
+                    if(iNow1 ==  $(".like-list ul li").size() -1){
+                        iNow1 = 0;
+                    }
+                })
+                $('.like-list ul li').eq(iNow1 -1).stop().animate({
+                    left : '-120%'
+                },1000)
+                $('.like-list ul li').eq(0).css('left','0');
+                $('.like-list ul li').css('left','100%');
+
+            }
+            //猜你喜欢动画效果结束
+            //分类区数据加载
+            // $.ajax({
+            //     url: '../data/data4.json',
+            //     type: "GET",
+            //     success: function(res){
+            //         for(var i = 0; i < res.length; i++){
+            //             $(`<div class="unflot">
+            //                     <div class="unflot-g">
+            //                         <dl>
+            //
+            //                         </dl>
+            //                         </div>
+            //               </div>`).appendTo($(".bander .bander-goods"));
+            //             for(var j = 0; j < res[i].length; j++){
+            //                 $(`<dd>
+            //                         <p>分类</p>
+            //                     </dd>`).appendTo($(".bander .bander-goods .unflot-g dl"));
+            //                 for(var k = 0; k < res[i][j].length;k++){
+            //                     $(`<a href="#">${res[i][j][k]}</a>`).appendTo($(".bander .bander-goods .unflot-g dl dd"));
+            //                 }
+            //             }
+            //         }
+            //     },
+            //     error: function(msg){
+            //         alert(msg);
+            //     }
+            // })
+            //分类区数据加载结束
 
 
         })
