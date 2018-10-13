@@ -5,7 +5,7 @@ gulp.task('hello',function(){
 })
 
 gulp.task('copy-html',function(){
-    return gulp.src('index.html')
+    return gulp.src('*.html')
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());
 })
@@ -19,7 +19,14 @@ gulp.task('copy-css',function(){
     .pipe(rename('index.min.css'))
     .pipe(gulp.dest('dist/css'))
     .pipe(connect.reload());
-
+})
+gulp.task('copy-goods-css',function(){
+    return gulp.src('goods.css')
+    .pipe(gulp.dest('dist/css'))
+    .pipe(minifyCSS())
+    .pipe(rename('goods.min.css'))
+    .pipe(gulp.dest('dist/css'))
+    .pipe(connect.reload());
 })
 
 gulp.task('copy-images',function(){
@@ -48,7 +55,7 @@ gulp.task('copy-iconfont',function(){
     .pipe(gulp.dest('dist/iconfont'))
 })
 
-gulp.task("build", ["copy-html", "copy-css", "copy-images", "copy-scripts", "copy-data"], function(){
+gulp.task("build", ["copy-html", "copy-css", "copy-images", "copy-scripts", "copy-data",'copy-goods-css'], function(){
 	console.log("编译成功");
 })
 
@@ -58,7 +65,9 @@ gulp.task("watch", function(){
 	gulp.watch(["*.js", "!gulpfile.js"], ['copy-scripts']);
 	gulp.watch(['index.css'], ['copy-css']);
 	gulp.watch(['images/*.{jpg,png}'], ['copy-images']);
-	gulp.watch(["index.html"], ['copy-html']);
+	gulp.watch(["*.html"], ['copy-html']);
+    gulp.watch(['goods.css'], ['copy-goods-css']);
+
 
 })
 
