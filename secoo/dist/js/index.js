@@ -202,33 +202,46 @@ define(['jquery','jquery-cookie'],function($){
             }
             //猜你喜欢动画效果结束
             //分类区数据加载
-            // $.ajax({
-            //     url: '../data/data4.json',
-            //     type: "GET",
-            //     success: function(res){
-            //         for(var i = 0; i < res.length; i++){
-            //             $(`<div class="unflot">
-            //                     <div class="unflot-g">
-            //                         <dl>
-            //
-            //                         </dl>
-            //                         </div>
-            //               </div>`).appendTo($(".bander .bander-goods"));
-            //             for(var j = 0; j < res[i].length; j++){
-            //                 $(`<dd>
-            //                         <p>分类</p>
-            //                     </dd>`).appendTo($(".bander .bander-goods .unflot-g dl"));
-            //                 for(var k = 0; k < res[i][j].length;k++){
-            //                     $(`<a href="#">${res[i][j][k]}</a>`).appendTo($(".bander .bander-goods .unflot-g dl dd"));
-            //                 }
-            //             }
-            //         }
-            //     },
-            //     error: function(msg){
-            //         alert(msg);
-            //     }
-            // })
+            $.ajax({
+                url: '../data/data4.json',
+                type: "GET",
+                success: function(res){
+                    $(`<div class="unflot">
+                            <div class="unflot-g">
+                                <dl>
+                                    <dd class="fenlei">
+                                        <p>分类</p>
+                                    </dd>
+                                    <dd class="pinpai">
+                                        <p>品牌</p>
+                                    </dd>
+                                    <dd class="reci">
+                                        <p>热词</p>
+                                    </dd>
+                                </dl>
+                                </div>
+                      </div>`).appendTo($(".bander .bander-goods"));
+                    for(var i = 0; i < res.length; i++){
+                        for(var j = 0; j < res[i].length; j++){
+                            for(var k = 0; k < res[i][j].length;k++){
+                                $(`<a href="#">${res[i][j][k]}</a>`).appendTo($(".bander .bander-goods").eq(i).find(".unflot-g dl dd").eq(j));
+                            }
+                        }
+                    }
+                },
+                error: function(msg){
+                    alert(msg);
+                }
+            })
             //分类区数据加载结束
+            //分类区动画效果
+            $(".bander-goods,.unflot").mouseenter(function(){
+                $(this).find('.unflot').css('display','block')
+            });
+            $(".bander-goods,.unflot").mouseleave(function(){
+                $(this).find('.unflot').css('display','none')
+            });
+            //分类区动画效果结束
 
 
         })

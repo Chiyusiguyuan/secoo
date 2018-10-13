@@ -126,7 +126,7 @@ img{vertical-align: middle;}
     position: relative;
 }
 .banderbody input{
-    width: 214px;
+    width: 228px;
     height: 28px;
     border: 0;
     margin-top: 3px;
@@ -153,7 +153,7 @@ img{vertical-align: middle;}
     line-height: 44px;
     /* position: relative; */
     font-size: 14px;
-    font-family: Microsoft YaHei;
+    float: left;
 }
 .bander .banderbody .bander-a>a{
     color:white;
@@ -169,7 +169,7 @@ img{vertical-align: middle;}
 }
 
  .bander .banderbody .bander-goods .unflot{
-    /* display: none; */
+    display: none;
     padding: 50px 0 42px;
     border-bottom: 3px solid #f8a120;
     background-color: #fff;

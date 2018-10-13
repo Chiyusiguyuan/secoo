@@ -23,7 +23,7 @@ gulp.task('copy-css',function(){
 })
 
 gulp.task('copy-images',function(){
-    return gulp.src('images/*.{jpg,png}')
+    return gulp.src('images/**/*')
     .pipe(gulp.dest('dist/images'))
     .pipe(connect.reload());
 
