@@ -6,13 +6,17 @@ require.config({
 	paths: {
 		"jquery": "jquery-1.11.3",
 		"jquery-cookie": "jquery.cookie",
-        'index':'index'
+        'index':'index',
+        'goods':'goods',
+        'maingoods':'maingoods'
 	},
 	shim: {
 		"jquery-cookie": ["jquery"],
 	}
 })
 
-require(['index'], function(index){
+require(['index','goods','maingoods'], function(index,goods,maingoods){
 	index.main();
+    goods.main();
+    maingoods.main();
 })
