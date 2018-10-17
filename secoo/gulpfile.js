@@ -36,6 +36,14 @@ gulp.task('copy-maingoods-css',function(){
     .pipe(gulp.dest('dist/css'))
     .pipe(connect.reload());
 })
+gulp.task('copy-login-css',function(){
+    return gulp.src('login.css')
+    .pipe(gulp.dest('dist/css'))
+    .pipe(minifyCSS())
+    .pipe(rename('login.min.css'))
+    .pipe(gulp.dest('dist/css'))
+    .pipe(connect.reload());
+})
 
 gulp.task('copy-images',function(){
     return gulp.src('images/**/*')
@@ -63,7 +71,7 @@ gulp.task('copy-iconfont',function(){
     .pipe(gulp.dest('dist/iconfont'))
 })
 
-gulp.task("build", ["copy-html", "copy-css", "copy-images", "copy-scripts", "copy-data",'copy-goods-css','copy-maingoods-css'], function(){
+gulp.task("build", ["copy-html", "copy-css", "copy-images", "copy-scripts", "copy-data",'copy-goods-css','copy-maingoods-css','copy-login-css'], function(){
 	console.log("编译成功");
 })
 
@@ -75,7 +83,8 @@ gulp.task("watch", function(){
 	gulp.watch(['images/*.{jpg,png}'], ['copy-images']);
 	gulp.watch(["*.html"], ['copy-html']);
     gulp.watch(['goods.css'], ['copy-goods-css']);
-    gulp.watch(['maingoods.css'],['copy-maingoods-css'])
+    gulp.watch(['maingoods.css'],['copy-maingoods-css']);
+    gulp.watch(['login.css'],['copy-login-css']);
 
 
 })
