@@ -8,15 +8,17 @@ require.config({
 		"jquery-cookie": "jquery.cookie",
         'index':'index',
         'goods':'goods',
-        'maingoods':'maingoods'
+        'maingoods':'maingoods',
+        'login':'login'
 	},
 	shim: {
 		"jquery-cookie": ["jquery"],
 	}
 })
 
-require(['index','goods','maingoods'], function(index,goods,maingoods){
+require(['index','goods','maingoods','login'], function(index,goods,maingoods,login){
 	index.main();
     goods.main();
     maingoods.main();
+    login.main();
 })
