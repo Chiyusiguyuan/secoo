@@ -75,7 +75,16 @@ define(['jquery','jquery-cookie'],function($){
                 $('#buyNumVal').attr('value',num);
             })
             //购买数量加减结束
+            //添加cookie
+            $("#addCarInfo").click(function(){
+                $.cookie('goods', `[{id:1,num:${$('#buyNumVal').val()},color:'黑色',price:4500,name:'Mulberry/玛百莉Darley小号女士牛皮学院包RL4957/205A100'}]`, {expires: 7});
+            })
+            $("#addBindCar").click(function(){
+                $.cookie('goods', `[{id:1,num:${$('#buyNumVal').val()},color:'黑色',price:4500,name:'Mulberry/玛百莉Darley小号女士牛皮学院包RL4957/205A100'}]`, {expires: 7});
+            })
+            //添加cookie结束
         })
+
     }
     return {
         main : main

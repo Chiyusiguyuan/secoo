@@ -8,7 +8,7 @@ define(['jquery','jquery-cookie'],function($){
                         for(var j = 0; j < res[0].length; j++){
                             $(`<li>
                                 <div class="imgbox">
-                                    <a href="">
+                                    <a href="maingoods.html">
                                         <img src="${res[0][j].img}" alt="">
                                     </a>
                                 </div>

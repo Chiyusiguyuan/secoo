@@ -44,6 +44,14 @@ gulp.task('copy-login-css',function(){
     .pipe(gulp.dest('dist/css'))
     .pipe(connect.reload());
 })
+gulp.task('copy-shoppingcar-css',function(){
+    return gulp.src('shoppingcar.css')
+    .pipe(gulp.dest('dist/css'))
+    .pipe(minifyCSS())
+    .pipe(rename('shoppingcar.min.css'))
+    .pipe(gulp.dest('dist/css'))
+    .pipe(connect.reload());
+})
 
 gulp.task('copy-images',function(){
     return gulp.src('images/**/*')
@@ -71,7 +79,7 @@ gulp.task('copy-iconfont',function(){
     .pipe(gulp.dest('dist/iconfont'))
 })
 
-gulp.task("build", ["copy-html", "copy-css", "copy-images", "copy-scripts", "copy-data",'copy-goods-css','copy-maingoods-css','copy-login-css'], function(){
+gulp.task("build", ["copy-html", "copy-css", "copy-images", "copy-scripts", "copy-data",'copy-goods-css','copy-maingoods-css','copy-login-css','copy-shoppingcar-css'], function(){
 	console.log("编译成功");
 })
 
@@ -85,8 +93,7 @@ gulp.task("watch", function(){
     gulp.watch(['goods.css'], ['copy-goods-css']);
     gulp.watch(['maingoods.css'],['copy-maingoods-css']);
     gulp.watch(['login.css'],['copy-login-css']);
-
-
+    gulp.watch(['shoppingcar.css'],['copy-shoppingcar-css']);
 })
 
 const connect = require("gulp-connect");

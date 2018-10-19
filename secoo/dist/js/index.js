@@ -22,6 +22,7 @@ define(['jquery','jquery-cookie'],function($){
                     alert(msg);
                 }
             })
+            $('.containerbody ul').on('click','')
 
             var iNow = -1 ;
             var timer = null;
@@ -112,7 +113,7 @@ define(['jquery','jquery-cookie'],function($){
                 success: function(res){
                     var html = "";
                     for(var i = 0; i < res.length; i++){
-                        html += `<a href="">
+                        html += `<a href="goods.html">
                             <div>
                                 <img src="${res[i].img}" alt="">
                             </div>

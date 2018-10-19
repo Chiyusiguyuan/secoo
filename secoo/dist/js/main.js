@@ -9,16 +9,18 @@ require.config({
         'index':'index',
         'goods':'goods',
         'maingoods':'maingoods',
-        'login':'login'
+        'login':'login',
+        'shoppingcar':'shoppingcar'
 	},
 	shim: {
 		"jquery-cookie": ["jquery"],
 	}
 })
 
-require(['index','goods','maingoods','login'], function(index,goods,maingoods,login){
+require(['index','goods','maingoods','login','shoppingcar'], function(index,goods,maingoods,login,shoppingcar){
 	index.main();
     goods.main();
     maingoods.main();
     login.main();
+    shoppingcar.main();
 })
