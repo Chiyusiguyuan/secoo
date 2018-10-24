@@ -12,6 +12,7 @@ define(['jquery','jquery-cookie'],function($){
                     $('.cartNames .color999').html('颜色： '+cookie_arr[i].color);
                     $('.goodsPrice').html(`<span class="rmb">¥</span><span class="price">${cookie_arr[i].price}</span>`);
                     $('.Num').val(cookie_arr[i].num);
+                    $('.shoppingCarNum').html(`(${cookie_arr[i].num})`);
                 }
             }
 
@@ -19,6 +20,7 @@ define(['jquery','jquery-cookie'],function($){
 
             //数量加减操作
             $('.cMinus').click(function(){
+
                 var num = $('.Num').val();
                 num++;
                 $('.Num').val(num);
@@ -28,6 +30,7 @@ define(['jquery','jquery-cookie'],function($){
                 var allMoney = $('.totalPriceBottom strong').html();
                 allMoney = '￥' + $('.colore93 .rmbValue').html();
                 $('.totalPriceBottom strong').html(allMoney);
+                $.cookie('goods', `[{id:1,num:${$('.Num').val()},color:'黑色',price:4500,name:'Mulberry/玛百莉Darley小号女士牛皮学院包RL4957/205A100'}]`, { expires: 7 });
             })
             $('.cPlus').click(function(){
                 var num = $('.Num').val();
@@ -52,6 +55,7 @@ define(['jquery','jquery-cookie'],function($){
                 var allMoney = $('.totalPriceBottom strong').html();
                 allMoney = '￥' + $('.colore93 .rmbValue').html();
                 $('.totalPriceBottom strong').html(allMoney);
+                $.cookie('goods', `[{id:1,num:${$('.Num').val()},color:'黑色',price:4500,name:'Mulberry/玛百莉Darley小号女士牛皮学院包RL4957/205A100'}]`, { expires: 7 });
             })
             //数量加减结束
             //其他选项功能

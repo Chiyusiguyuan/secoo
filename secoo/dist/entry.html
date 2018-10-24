@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>寺库网-全球奢饰品服务网站</title>
-        <link rel="stylesheet" href="css/login.min.css">
+        <link rel="stylesheet" href="css/entry.min.css">
         <script src = 'js/require.js' async="true" defer data-main = 'js/main'></script>
     </head>
     <body>
@@ -21,81 +21,32 @@
         </div>
         <div class="bgcolor">
             <div class="reg_center">
+                <ul class="login_ewm_title">
+                    <li class="on">密码登录</li>
+                </ul>
                 <div class="tab_phone">
                     <ul>
                         <li>
                             <div class="regTips">
-                                <span class="t_right">用户名</span>
-                                <div class="regName_tips fr reg_userName username">请输入手机号或者邮箱</div>
                             </div>
                             <div class="loginTips">
-                                <input id="usernameInput" class="fl reg_int reg_in blur_error" type="text">
+                                <input id="usernameInput" class="fl reg_int reg_in blur_error" type="text" placeholder="用户名/手机号/邮箱">
                             </div>
                         </li>
                         <li>
-                            <div class="kapt_show" style="display:list-itme;">
-                                <div class="regTips">
-                                    <span class="t_right">验证码</span>
-                                </div>
-                                <input id="kapt" class="fl reg_ins reg_in" type="text">
-                                <a class="fl" href="javascript:;">
-                                    <div id="showCapt">
+                            <div class="regTips">
 
-                                    </div>
-                                </a>
-                                <a class="change fl" id='changeKapt' href="javascript:;">换一换</a>
-                            </div>
-                        </li>
-                        <li class="clearfix verify_code_show" style="display: list-item;">
-                            <div class="verifyCodeDiv clearfix">
-                                <input id="verifyCode" style="width:115px; height:16px; padding:12px 5px;" class="fl reg_int reg_in" type="text">
-                                <div class="fl yanzheng" style="width:140px;margin-top:8px;margin-left:4px; _display:inline;">
-                                    <a class="btnStyle01" id="verifyCodeBtn" href="javascript:;">获取短信验证码</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="regTips">
-                                <span class="t_right">密码</span>
-                                <div class="regName_tips fr reg_userName ana password">请输入密码！</div>
                             </div>
                             <div class="loginTips">
-                                <input id="passwordInput" class="fl reg_int reg_in blur_error" type="password">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="regTips">
-                                <span class="t_right">确认密码</span>
-                                <div class="regName_tips fr reg_userName ana checkpassword">请再次确认密码</div>
-                            </div>
-                            <div class="loginTips">
-                                <input id="checkedInput" class="fl reg_int reg_in blur_error" type="password">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="regTips">
-                                <span class="t_right">
-                                    <input name="" type="checkbox" class="guibing" value="">
-                                    贵宾邀请码</span>
-                                <div class="regName_tips fr reg_userName ana">请输入正确的邀请码</div>
-                            </div>
-                            <div class="loginTips">
-                                <input id="yaoqingInput" class="fl reg_int reg_in blur_error" type="text"  style="display:none;">
+                                <input id="passwordInput" class="fl reg_int reg_in blur_error" type="password" placeholder="密码">
                             </div>
                         </li>
                     </ul>
                     <div class="btn_reg_submit">
-                        <input id="regSubmit" class="input_sub login_btn" name="" type="button" value="立即注册" tabindex="7">
-                        <p class="protocol_check" style="clear:both;">
-                            <label class="serviceCheck">
-                                <input type="checkbox" checked="checked" id="readProtocol">我已阅读并同意
-                            </label>
-                            <a id="regProtA" href="javascript:void(0)">《寺库网用户注册协议》
-                            </a>
-                        </p>
+                        <input id="regSubmit" class="input_sub login_btn" name="" type="button" value="立即登录" tabindex="7">
                         <div class="iperror f14 blur" id="protocol" style="display: none;">请接受服务条款</div>
                     <div class="msg clearfix padTop30">
-                        <span class="fl">已经是寺库会员？<a href="entry.html" target="_blank" class="active">立即登录</a></span>
+                        <span class="fl">还不是寺库会员？<a href="login.html" target="_blank" class="active">立即注册</a></span>
                     </div>
                 </div>
                 </div>
